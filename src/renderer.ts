@@ -48,18 +48,15 @@ Promise.all([axios.get('https://raw.githubusercontent.com/Devollox/Devollox/main
                
             `
 
-            if (intHelper === 1) {
-                intHelper = 2
-                firstButton = JSON.buttonFirst.first.firstButton
-                secondButton = JSON.buttonFirst.first.secondButton
-                return {firstButton, secondButton}
-            }
-            if (intHelper === 2) {
-                intHelper = 1
-                firstButton = JSON.buttonFirst.second.firstButton
-                secondButton = JSON.buttonFirst.second.secondButton
-                return {firstButton, secondButton}
-            }
+                if (firstButton === "My WebSite." || firstButton === JSON.buttonFirst.second.firstButton) {
+                    firstButton = JSON.buttonFirst.first.firstButton
+                    secondButton = JSON.buttonFirst.first.secondButton
+                    return {firstButton, secondButton}
+                } else {
+                    firstButton = JSON.buttonFirst.second.firstButton
+                    secondButton = JSON.buttonFirst.second.secondButton
+                    return {firstButton, secondButton}
+                }
         }, 3 * 1000)
     })
 
